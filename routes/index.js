@@ -2,9 +2,11 @@ var express = require('express');
 var mqtt=require('mqtt');
 var app = express.Router();
 
-var client  = mqtt.connect('mqtt://192.168.1.3');
-/* GET home page. */
+var client  = mqtt.connect('mqtt://192.168.0.3');
+
+
 app.get('/', function(req, res, next) {
+
   res.render('error');
 });
 
@@ -39,7 +41,30 @@ app.get('/takeimage',function(req,res)
   
 
   res.redirect('/image');
-})
+});
+
+app.get('/map',function(req,res)
+{
+  res.render('maps');
+});
+
+app.get('/map1',function(req,res)
+{
+
+  
+  res.render('map1');
+});
+
+app.get('/map2',function(req,res)
+{
+  res.render('map2');
+});
+
+app.get('/map3',function(req,res)
+{
+  res.render('map3');
+});
+
 
 app.post('/post1',function(req,res)
 {
